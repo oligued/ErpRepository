@@ -1,54 +1,64 @@
 package staff;
 
+
 /**
- *	 Class Invariant: All objects have a name string and hire date.
+ *	 Class Invariant: All objects have a name string.
  *	 A name string of "No name" indicates no real name specified yet.
- *	 A hire date of January 1, 1000 indicates no real hire date specified yet.
  */
-public class Employee
+public abstract class Employee
 {
+	/**
+	 * 
+	 */
+	@SuppressWarnings("unused")
+	private static final long serialVersionUID = 1L;
+
 	private String name;
 
+	/**
+	 * Default constructor.
+	 * Postcondition: set default name to "No name"
+	 */
 	public Employee()
 	{
 		name = "No name";
 	}
 
 	/**
-	 *	 Precondition: Neither theName nor theDate is null .
+	 * Constructor use to set theName.
+	 * Precondition: theName is not null.
 	 */
 	public Employee(String theName)
 	{
-		if (theName == null)
-		{
-			System.out.println("Fatal Error creating employee.");
-			System.exit(0);
-		}
+		assert(name!=null);
 		name = theName;
 	}
 
+	/**
+	 * Copy constructor.
+	 * Precondition: originalObject is not null.
+	 */
 	public Employee(Employee originalObject)
 	{
+		assert(originalObject!=null);
 		name = originalObject.name;
 	}
 
+	/**
+	 * Returns the name.
+	 */
 	public String getName()
 	{
 		return name;
 	}
 
 	/**
-	 *	 Precondition newName is not null.
+	 * Set name to newName.
+	 * Precondition: newName is not null.
 	 */
 	public void setName(String newName)
 	{
-		if (newName == null)
-		{
-			System.out.println("Fatal Error setting employee name.");
-			System.exit(0);
-		}
-		else
-			name = newName;
+		name = newName;
 	}
 
 	public String toString()

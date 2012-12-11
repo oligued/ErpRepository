@@ -8,36 +8,56 @@ package staff;
  */
 public class SalariedEmployee extends Employee
 {
+	/**
+	 * 
+	 */
+	@SuppressWarnings("unused")
+	private static final long serialVersionUID = 1L;
+	
 	private double salary; //annual
+	
+	/**
+	 * Default constructor.
+	 * Postcondition: set salary to 0 and call default constructor of base class
+	 */
 	public SalariedEmployee()
 	{
 		super();
 		salary = 0;
 	}
+	
 	/**
-	 * Precondition: Neither theName nor theDate are null;
-	 * theSalary is nonnegative.
+	 * Constructor use to set theName and theSalary.
+	 * Precondition: theName is not null and theSalary is nonnegative.
 	 */
 	public SalariedEmployee(String theName, double theSalary)
 	{
 		super(theName);
-		if (theSalary >= 0)
-			salary = theSalary;
-		else
-		{
-			System.out.println("Fatal Error: Negative salary.");
-			System.exit(0);
-		}
+		
+		assert(theSalary >= 0);
+		salary = theSalary;
 	}
+	
+	/**
+	 * Copy constructor.
+	 * Precondition: originalObject is not null
+	 */
 	public SalariedEmployee(SalariedEmployee originalObject)
 	{
 		super(originalObject);
+		
+		assert(originalObject != null);
 		salary = originalObject.salary;
 	}
+
+	/**
+	 * Returns the pay for the year.
+	 */
 	public double getSalary()
 	{
 		return salary;
 	}
+	
 	/**
 	 * Returns the pay for the month.
 	 */
@@ -45,23 +65,21 @@ public class SalariedEmployee extends Employee
 	{
 		return salary/12;
 	}
+	
 	/**
 	 * Precondition: newSalary is nonnegative.
 	 */
 	public void setSalary( double newSalary)
 	{
-		if (newSalary >= 0)
-			salary = newSalary;
-		else
-		{
-			System.out.println("Fatal Error: Negative salary.");
-			System.exit(0);
-		}
+		assert(newSalary >= 0);
+		salary = newSalary;
 	}
+	
 	public String toString()
 	{
 		return (getName() + " " + "\n$" + salary + " per year");
 	}
+	
 	public boolean equals(SalariedEmployee other)
 	{
 		return (getName().equals(other.getName())
