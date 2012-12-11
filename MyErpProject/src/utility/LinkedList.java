@@ -21,8 +21,7 @@ public class LinkedList<T_LinkedList>
 	private int size;
 
 	/**
-	 * Default constructor.
-	 * Refer the head cell to null and set size to 0.
+	 * Default constructor. Refer the head cell to null and set size to 0.
 	 */
 	public LinkedList()
 	{
@@ -37,10 +36,10 @@ public class LinkedList<T_LinkedList>
 	{
 		return (headCell == null);
 	}
-	
+
 	/**
-	 * Guettor :
-	 * Retruns the number of elements store in the LinkedList 
+	 * Guettor : Retruns the number of elements store in the LinkedList
+	 * 
 	 * @return size
 	 */
 	public int getSize()
@@ -55,20 +54,20 @@ public class LinkedList<T_LinkedList>
 	{
 		Cell<T_LinkedList> newCell = new Cell<>(element, headCell);
 		headCell = newCell;
+		size++;
 	}
 
 	/**
 	 * Mutateur : Recherche et supprime (la première occurence de) l'élément
 	 * elem s'il est dans la liste. Ne fait rien si l'élément elem n'est pas
-	 * dans la liste.
-	 * Precondition : LinkedList must not be empty
-	 * Postcondition : ...
+	 * dans la liste. Precondition : LinkedList must not be empty Postcondition
+	 * : ...
 	 * 
 	 */
 	public void findAndDelete(T_LinkedList element)
 	{
-		assert(headCell != null);
-	
+		assert (headCell != null);
+
 		if (headCell.content.equals(element))
 		{
 			headCell = headCell.next;
@@ -78,9 +77,11 @@ public class LinkedList<T_LinkedList>
 		{
 			Cell<T_LinkedList> parsingCell = headCell;
 
-			while ((parsingCell.next != null) && (!parsingCell.next.content.equals(element)))
+			while ((parsingCell.next != null)
+					&& (!parsingCell.next.content.equals(element)))
 				parsingCell = parsingCell.next;
-			if (parsingCell.next != null)	// check if the next cell contain the element to delete
+			if (parsingCell.next != null) // check if the next cell contain the
+											// element to delete
 			{
 				parsingCell.next = parsingCell.next.next;
 				size--;
@@ -89,8 +90,7 @@ public class LinkedList<T_LinkedList>
 	}
 
 	/**
-	 * Parcourt et affiche la liste.
-	 * Précondition : Liste non-vide.
+	 * Parcourt et affiche la liste. Précondition : Liste non-vide.
 	 */
 	public void showList()
 	{

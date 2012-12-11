@@ -1,9 +1,8 @@
 package staff;
 
-
 /**
- *	 Class Invariant: All objects have a name string.
- *	 A name string of "No name" indicates no real name specified yet.
+ * Class Invariant: All objects have a name string. A name string of "No name"
+ * indicates no real name specified yet.
  */
 public abstract class Employee
 {
@@ -16,8 +15,7 @@ public abstract class Employee
 	private String name;
 
 	/**
-	 * Default constructor.
-	 * Postcondition: set default name to "No name"
+	 * Default constructor. Postcondition: set default name to "No name"
 	 */
 	public Employee()
 	{
@@ -25,22 +23,20 @@ public abstract class Employee
 	}
 
 	/**
-	 * Constructor use to set theName.
-	 * Precondition: theName is not null.
+	 * Constructor use to set theName. Precondition: theName is not null.
 	 */
 	public Employee(String theName)
 	{
-		assert(name!=null);
+		assert (name != null);
 		name = theName;
 	}
 
 	/**
-	 * Copy constructor.
-	 * Precondition: originalObject is not null.
+	 * Copy constructor. Precondition: originalObject is not null.
 	 */
 	public Employee(Employee originalObject)
 	{
-		assert(originalObject!=null);
+		assert (originalObject != null);
 		name = originalObject.name;
 	}
 
@@ -53,8 +49,7 @@ public abstract class Employee
 	}
 
 	/**
-	 * Set name to newName.
-	 * Precondition: newName is not null.
+	 * Set name to newName. Precondition: newName is not null.
 	 */
 	public void setName(String newName)
 	{
